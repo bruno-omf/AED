@@ -1,0 +1,20 @@
+Conceito de Algoritmos e Estruturas de Dados:
+
+Um Array é um modelo conceitual de uma estrutura de dados. Outros exemplos de estruturas de dados são: Listas, Pilhas e Filas.
+O algoritmo, por sua vez, é uma sequência lógica de passos que serão usados para processar e manipular o Array. Ou então manipular a lista, pilha ou fila.
+
+A escolha da estrutura de dados pode impactar diretamente na eficiência dos algoritmos. Uma operação de busca ou inserção pode variar significativamente em performance dependendo da estrutura utilizada.
+
+Algoritmos de buscas e inserções OPERAM sobre ESTRUTURAS DE DADOS, como Arrays, Listas, Pilhas e Filas.
+
+Então, o modelo conceitual de estrutura de dados é fixo e "eterno" como ideia.
+Os algoritmos que manipulam tais estruturas, são dinâmicos, pois mudam conforme a aplicação e o tempo de execução.
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+Falando um pouco sobre tempo de execução de algoritmos e notação Big-O:
+
+O Big-O descreve como o tempo de execução de um algoritmo cresce à medida em que o tamanho da entrada(n) aumenta.
+- Para pequenas entradas, um algoritmo O(n), que tem o tempo de execução crescendo linearmente com o tamanho da entrada, pode ser perfeitamente adequado.
+
+- Para entradas maiores, algoritmos O(log n), que cresce de forma mais lenta à medida em que a entrada aumenta, oferecem uma eficiência muito melhor, porque lidam com o crescimento da entrada de forma mais eficaz. 
