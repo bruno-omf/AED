@@ -6,16 +6,31 @@ typedef struct Node {
     struct Node* next;
 } Node;
 
-Node* insertAtHead(Node* head, int value) {
+Node* insertAtStart(Node* list, int value) {
     Node* newNode = (Node*)malloc(sizeof(Node));
     newNode->data = value;
-    newNode->next = head;
+    newNode->next = list;
 
     return newNode;
 }
 
-void printList(Node* head) {
-    Node* current = head;
+Node* insertAtEnd(Node* list, int value) {
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    newNode->data = value;
+    newNode->next = NULL;
+
+    //if (list == NULL) return newNode;
+
+    Node* temp = list; // cria um ponteiro temporário para percorrer a lista
+    while (temp->next != NULL) { // percorre a lista até o último nó
+        temp = temp->next; // avança para o próximo nó
+    }
+    temp->next = newNode; // adiciona o novo nó no fim da lista
+    return list; // retorna o início da lista (head)
+}
+
+void printList(Node* list) {
+    Node* current = list;
     while(current != NULL) {
         printf("%d -> ", current->data);
         current = current->next;
@@ -24,13 +39,16 @@ void printList(Node* head) {
 }
 
 int main() {
-    Node* head = NULL;
+    Node* list = NULL;
 
-    head = insertAtHead(head, 10);
-    head = insertAtHead(head, 20);
-    head = insertAtHead(head, 30);
+    list = insertAtStart(list, 10);
+    list = insertAtStart(list, 20);
+    list = insertAtStart(list, 30);
 
-    printList(head);
+    list = insertAtEnd(list, 40); // 30 -> 20 -> 10 -> 40 -> NULL
+    list = insertAtEnd(list, 50); // 30 -> 20 -> 10 -> 40 -> 50 -> NULL
+
+    printList(list);
 
     return 0;
 }
