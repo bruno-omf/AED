@@ -13,7 +13,7 @@ Node* insertAtStart(int value, Node* head) {
     newNode->data = value; // valor recebido do parametro
     newNode->next = head; // ponteiro para o proximo nó
 
-    return newNode; // retorna um novo nó.
+    return newNode; // retorna um novo nó, que é um ponteiro para o inicio da lista, nesse caso.
 }
 
 //inserir no final
@@ -23,11 +23,11 @@ Node* insertAtEnd(int value, Node* head) {
     newNode->next = NULL;
 
     Node* temp = head;
-    while (temp->next != NULL) {
-        temp = temp->next;
-    }
-    temp->next = newNode;
-    return head;
+    while (temp->next != NULL) { //enquanto o proximo nó não for NULL
+        temp = temp->next; // avança para o proximo nó
+    } // quando o proximo nó for NULL
+    temp->next = newNode; // o proximo nó recebe o novo nó
+    return head; // retorna o inicio da lista
 }
 
 //imprimir todos os elementos da lista
