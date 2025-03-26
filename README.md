@@ -5,6 +5,5 @@ This repository is dedicated to the **Data Structures and Algorithms (AED)** cou
 ## Overview
 
 - **Purpose:** To document my learning journey and practice with data structures and algorithms, compiling exercises and projects completed during the course.
-- **Target Audience:** This repository is intended exclusively for personal use and to showcase my work on my profile. External contributions are not accepted.
 
 *This repository is maintained **exclusively for personal reference**.*
