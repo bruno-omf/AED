@@ -10,7 +10,7 @@ Algoritmos de buscas e inserções OPERAM sobre ESTRUTURAS DE DADOS, como Arrays
 Então, o modelo conceitual de estrutura de dados é fixo e "eterno" como ideia.
 Os algoritmos que manipulam tais estruturas, são dinâmicos, pois mudam conforme a aplicação e o tempo de execução.
 
----------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
 
 Falando um pouco sobre tempo de execução de algoritmos e notação Big-O:
 
