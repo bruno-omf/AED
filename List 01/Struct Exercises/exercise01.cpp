@@ -4,7 +4,6 @@
 // • Altura (float)
 // No programa principal, declare uma variável do tipo Pessoa, preencha os dados
 // do usuário via teclado e exiba as informações.
-
 #include <stdio.h>
 #include <iostream>
 

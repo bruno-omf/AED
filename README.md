@@ -1,6 +1,6 @@
-# Data Structures and Algorithms (AED)
+# Data Structures and Algorithms (DSA)
 
-This repository is dedicated to the **Data Structures and Algorithms (AED)** course from my Information Systems program. It contains class materials, exercises, and projects developed throughout the course, serving as a personal study and reference resource.
+This repository is dedicated to the **Data Structures and Algorithms (DSA)** class from my Information Systems college course. It contains class materials, exercises, and projects developed throughout the course, serving as a personal study and reference resource.
 
 ## Overview
 

@@ -4,7 +4,6 @@
 // • Nota (float)
 // Solicite ao usuário que insira os dados dos 5 alunos e depois exiba a média das
 // notas.
-
 #include <stdio.h>
 #include <iostream>
 

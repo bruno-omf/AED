@@ -5,7 +5,6 @@
 // Crie uma função que recebe um Produto como parâmetro e exibe seus dados
 // formatados. No main(), instancie um produto, peça ao usuário que insira seus
 // valores e chame a função para exibir os dados.
-
 #include <stdio.h>
 #include <iostream>
 
