@@ -118,25 +118,25 @@ void postOrder(Node* root) {
 int main() {
     Node * root = NULL; // criar um no raiz inicializando com null
     
-    root = insertNode(root, 50);
-    insertNode(root, 30);
-    insertNode(root, 70);
+    root = insertNode(root, 40);
     insertNode(root, 20);
-    insertNode(root, 40);
     insertNode(root, 60);
-    insertNode(root, 80);
+    insertNode(root, 10);
+    insertNode(root, 30);
+    insertNode(root, 50);
+    insertNode(root, 70);
 
-    /* cout << "Pre-order tree: ";
+    cout << "Pre-order tree: ";
     preOder(root);
-    cout << endl; */
+    cout << endl;
 
     cout << "In-order tree: ";
     inOrder(root);
     cout << endl;
 
-    /* cout << "Post-order tree: ";
+    cout << "Post-order tree: ";
     postOrder(root);
-    cout << endl; */
+    cout << endl;
 
     /* cout << "Removing node 20: ";
     removeNode(root, 20);
@@ -157,7 +157,7 @@ int main() {
     inOrder(root);
     cout << endl; */
     
-    cout << endl;
+    /* cout << endl;
     cout << "Searching the node 60..." << endl;
     searchNode(root, 60);
 
@@ -165,8 +165,7 @@ int main() {
     searchNode(root, 25);
 
     cout << "Searching the node 40..." << endl;
-    searchNode(root, 40);
+    searchNode(root, 40); */
     
-
     return 0;
 }
