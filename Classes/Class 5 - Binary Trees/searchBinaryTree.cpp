@@ -73,6 +73,24 @@ Node* removeNode(Node* root, int data) {
     return root;
 }
 
+void searchNode(Node* root, int data) { // função que busca um nó na árvore binária de busca
+    if (root == NULL) { // CASO BASE: se a raiz for nula, já percorremos todos os nós e não encontramos o valor.
+        cout << "The number " << data << " doesn't exist in the tree :(" << endl;
+        return;
+    }
+
+    if (root->data == data) { 
+        cout << "The number " << data << " was found!" << endl;
+        return;
+    }
+
+    if (data < root->data) { // se o valor for menor que a raiz, busca na sub-arvore esquerda
+        searchNode(root->left, data); // chama a função recursivamente na sub-árvore esquerda
+    } else { // se o valor for maior ou igual a raiz, busca na sub-árvore direita
+        searchNode(root->right, data); // chama a função recursivamente na sub-árvore direita
+    }
+}
+
 void preOder(Node* root) {
     if (root != NULL) {
         cout << root->data << " ";
@@ -120,7 +138,7 @@ int main() {
     postOrder(root);
     cout << endl; */
 
-    cout << "Removing node 20: ";
+    /* cout << "Removing node 20: ";
     removeNode(root, 20);
     inOrder(root);
     cout << endl;
@@ -137,7 +155,18 @@ int main() {
 
     cout << "In-order tree post removes: ";
     inOrder(root);
+    cout << endl; */
+    
     cout << endl;
+    cout << "Searching the node 60..." << endl;
+    searchNode(root, 60);
+
+    cout << "Searching the node 25..." << endl;
+    searchNode(root, 25);
+
+    cout << "Searching the node 40..." << endl;
+    searchNode(root, 40);
+    
 
     return 0;
 }
