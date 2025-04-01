@@ -34,6 +34,45 @@ Node* insertNode(Node* root, int data) {
     return root;
 }
 
+Node* minimumFinder(Node* node) { // encontra o menor valor em uma sub-árvore
+    while (node->left != NULL) {
+        node = node->left;
+    }
+    return node;
+}
+
+Node* removeNode(Node* root, int data) {
+    if (root == NULL) { // CASO BASE
+        return root;
+    }
+
+    if (data < root->data) { // se o valor for menor que a raiz, busca na sub-arvore esquerda
+        root->left = removeNode(root->left, data);
+    } else if (data > root->data) { // se o valor for maior que a raiz, busca na sub-árvore direita
+        root->right = removeNode(root->right, data);
+    } else {
+        if (root->left == NULL && root->right == NULL) { // CASO 1: remover um nó sem filhos
+            free(root); // libera o nó atual
+            return NULL;
+        } else if (root->left == NULL) { // CASO 2: remover um nó com um filho. Se o nó da esquerda da raiz for nulo:
+            Node* temp = root->right; // armazena o nó da direita
+            free(root); // libera o nó atual
+            return temp; // retorna o nó da direita
+        } else if (root->right == NULL) { // CASO 2: remover um nó com um filho. Se o nó da direita da raiz for nulo:
+            Node * temp = root->left; // armazena o nó da esquerda
+            free(root); // libera o nó atual
+            return temp; // retorna o nó da direita
+        }
+
+        // CASO 3: remover um nó com dos filhos
+        // encontra o sucessor
+        Node* temp = minimumFinder(root->right);
+        root->data = temp->data; // substitui o valor da raiz pelo menor valor da sub-árvore da direita (sucessor imediato)
+        root->right = removeNode(root->right, temp->data); // remove o sucessor imediato da raiz (menor valor da sub-árvore da direita)
+    }
+    return root;
+}
+
 void preOder(Node* root) {
     if (root != NULL) {
         cout << root->data << " ";
@@ -80,6 +119,25 @@ int main() {
     /* cout << "Post-order tree: ";
     postOrder(root);
     cout << endl; */
+
+    cout << "Removing node 20: ";
+    removeNode(root, 20);
+    inOrder(root);
+    cout << endl;
+
+    cout << "Removing node 30: ";
+    removeNode(root, 30);
+    inOrder(root);
+    cout << endl;
+
+    cout << "Removing node 50: ";
+    removeNode(root, 50);
+    inOrder(root);
+    cout << endl;
+
+    cout << "In-order tree post removes: ";
+    inOrder(root);
+    cout << endl;
 
     return 0;
 }
