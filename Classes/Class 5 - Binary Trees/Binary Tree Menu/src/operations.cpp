@@ -25,6 +25,7 @@ Node* minimumFinder(Node* node) {
 
 Node* removeNode(Node* root, int data) {
     if (root == NULL) {
+        cout << endl << "The tree is empty. There is nothing to remove.";
         return root;
     }
 
