@@ -22,23 +22,31 @@ void showMenu(Node** root) {
 
         switch (option) {
             case 1:
-                cout << "Enter value to insert in the Tree: ";
+                cout << endl << "Enter value to insert in the Tree: ";
                 cin >> data;
                 *root = insertNode(*root, data);
+                cout  << ">> " << data << " << was inserted in the tree!";
                 break;
             case 2:
-                cout << "Enter value to remove in the Tree: ";
+                cout << endl << "In Order Tree values: {";
+                inOrder(*root);
+                cout << "}";
+                cout << endl << "Enter value to remove in the Tree: ";
                 cin >> data;
                 *root = removeNode(*root, data);
                 break;
             case 3:
-                cout << "Enter value to search in the Tree: ";
+                cout << endl << "In Order Tree values: {";
+                inOrder(*root);
+                cout << "}";
+                cout << endl << "Enter value to search in the Tree: ";
                 cin >> data;
                 searchNode(*root, data);
                 break;
             case 4:
-                cout << "In Order Tree: ";
+                cout << endl << "In Order Tree: {";
                 inOrder(*root);
+                cout << "}";
                 cout << endl;
                 break;
             case 0:

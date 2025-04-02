@@ -35,20 +35,24 @@ Node* removeNode(Node* root, int data) {
     } else {
         if (root->left == NULL && root->right == NULL) {
             free(root);
+            cout << ">> " << data << " << was removed from the tree.";
             return NULL;
         } else if (root->left == NULL) {
             Node* temp = root->right;
             free(root);
+            cout << ">> " << data << " << was removed from the tree.";
             return temp;
         } else if (root->right == NULL) {
             Node* temp = root->left;
             free(root);
+            cout << ">> " << data << " << was removed from the tree.";
             return temp;
         }
 
         Node* temp = minimumFinder(root->right);
         root->data = temp->data;
         root->right = removeNode(root->right, temp->data);
+        cout << ">> " << data << " << was removed from the tree.";
     }
     return root;
 }
