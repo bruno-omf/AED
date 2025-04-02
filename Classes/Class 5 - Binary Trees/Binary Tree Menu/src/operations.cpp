@@ -31,7 +31,7 @@ Node* removeNode(Node* root, int data) {
     if (data < root->data) {
         root->left = removeNode(root->left, data);
     } else if (data > root->data) {
-        root->right = removeNode(root->left, data);
+        root->right = removeNode(root->right, data);
     } else {
         if (root->left == NULL && root->right == NULL) {
             free(root);
