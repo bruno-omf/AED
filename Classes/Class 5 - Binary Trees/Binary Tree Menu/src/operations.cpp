@@ -82,7 +82,7 @@ void preOrder(Node* root) {
 void inOrder(Node* root) {
     if (root != NULL) {
         inOrder(root->left);
-        cout << root->data;
+        cout << root->data << " ";
         inOrder(root->right);
     }
 }
@@ -91,6 +91,6 @@ void postOrder(Node* root) {
     if (root != NULL) {
         postOrder(root->left);
         postOrder(root->right);
-        cout << root->data;
+        cout << root->data << " ";
     }
 }

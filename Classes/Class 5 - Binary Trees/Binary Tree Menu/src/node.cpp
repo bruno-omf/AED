@@ -10,7 +10,7 @@ Node* createNode(int data) {
     if (newNode == NULL) {
         cout << "Memory allocation error!" << endl;
         exit(1); // termina o programa completamente
-        printf("Memory allocation error!\n");
+    } else {
         newNode->data = data;
         newNode->left = NULL;
         newNode->right = NULL;
