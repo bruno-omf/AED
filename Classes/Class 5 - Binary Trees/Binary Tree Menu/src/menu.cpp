@@ -1,6 +1,7 @@
 #include <iostream>
 #include "../include/menu.h"
 #include "../include/operations.h"
+#include "../include/utils.h"
 
 using namespace std;
 
@@ -8,6 +9,8 @@ void showMenu(Node** root) {
     int option, data;
 
     do {
+        timer(3);
+        clearScreen();
         cout << endl << "----- Binary Tree Interative Menu -----" << endl;
         cout << "1. Insert Value" << endl;
         cout << "2. Remove Value" << endl;
