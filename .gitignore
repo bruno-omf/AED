@@ -1,0 +1,11 @@
+# Ignorar arquivos de compilação do make
+Makefile
+*.o
+*.a
+*.so
+
+# Ignorar arquivos .exe
+*.exe
+
+# Ignorar a pasta .vscode
+.vscode/

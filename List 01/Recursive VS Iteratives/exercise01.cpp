@@ -10,9 +10,24 @@
 
 using namespace std;
 
+int contarDigitos(int numero) {
+    // caso base
+    if (numero < 10) {
+        return 1;
+    }
 
+    // caso recursivo
+    return 1 + contarDigitos(numero / 10);
+}
 
 int main() {
+    int numero, qtDigitos;
+    cout << "Digite um numero inteiro: ";
+    cin >> numero;
+
+    qtDigitos = contarDigitos(numero);
+
+    cout << "A quantidade de digitos do numero " << numero << " eh: " << qtDigitos;
 
     return 0;
 }
