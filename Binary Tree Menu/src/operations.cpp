@@ -25,7 +25,7 @@ Node* minimumFinder(Node* node) {
 
 Node* removeNode(Node* root, int data) {
     if (root == NULL) {
-        cout << endl << "This value doesn't exist in the tree.";
+        cout << endl << "The value " << data << " doesn't exist in the tree.";
         return root;
     }
 
