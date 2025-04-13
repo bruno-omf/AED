@@ -8,9 +8,25 @@
 
 using namespace std;
 
-
+void contagemRegressiva(int numero) {
+    if (numero < 0) {
+        return;
+    } else {
+        cout << numero << " ";
+        contagemRegressiva(numero - 1);
+    }
+}
 
 int main() {
+    int numero;
+
+    cout << "Voce vai visualizar uma contagem regressiva." << endl;
+    cout << "Digite um numero: ";
+    cin >> numero;
+
+    cout << "A contagem regressiva partindo do numero " << numero << " eh: ";
+    contagemRegressiva(numero);
+    cout << endl;
 
     return 0;
 }
