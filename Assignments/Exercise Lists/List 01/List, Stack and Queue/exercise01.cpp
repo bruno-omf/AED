@@ -34,10 +34,6 @@ Node* insertAtEnd(Node* head, int data) {
         return newNode;
     }
 
-    if (head == NULL) {
-        return newNode;
-    }
-
     Node* temp = head;
     while (temp->next != NULL) {
         temp = temp->next;
