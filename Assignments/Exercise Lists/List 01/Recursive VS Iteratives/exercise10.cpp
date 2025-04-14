@@ -7,9 +7,26 @@
 
 using namespace std;
 
+int produto(int numero, int vezes) {
+    int resultado = 0;
 
+    for (int i = 0; i < vezes; i++) {
+        resultado = resultado + numero;
+    }
+    return resultado;
+}
 
 int main() {
+    int numero, vezes, resultado;
 
+    cout << "Voce vai calcular o produto de dois numeros inteiros." << endl;
+    cout << "Digite o primeiro numero: ";
+    cin >> numero;
+
+    cout << "Digite quantas vezes quer multiplicar esse numero inserido: ";
+    cin >> vezes;
+
+    resultado = produto(numero, vezes);
+    cout << "O resultado da operacao : " << numero << "x" << vezes << " eh: " << resultado << endl;
     return 0;
 }
