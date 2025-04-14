@@ -11,40 +11,87 @@
 #include <iostream>
 
 using namespace std;
+
 typedef struct Node {
     int data;
     struct Node* next;
 } Node;
 
-Node* insertAtStart(Node* root, int data) {
+Node* insertAtStart(Node* head, int data) {
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    newNode->data = data;
+    newNode->next = head;
 
+    return newNode;
 }
 
-Node* insertAtEnd(Node* root, int data) {
+Node* insertAtEnd(Node* head, int data) {
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    newNode->data = data;
+    newNode->next = NULL;
 
+    if (head == NULL) {
+        return newNode;
+    }
+
+    if (head == NULL) {
+        return newNode;
+    }
+
+    Node* temp = head;
+    while (temp->next != NULL) {
+        temp = temp->next;
+    }
+    temp->next = newNode;
+
+    return head;
 }
 
-Node* removeNode(Node* root, int data) {
+Node* removeNode(Node* head, int data) {
+    if (head->data == data) {
+        Node* temp = head;
+        head = head->next;
+        free(temp);
+        return head;
+    }
 
+    Node* temp = head;
+    while (temp->next != NULL && temp->next->data != data) {
+        temp = temp->next;
+    }
+
+    if (temp->next != NULL) {
+        Node* toDelete = temp->next;
+        temp->next = temp->next->next;
+        free(toDelete);
+    }
+
+    return head;
 }
 
-void printList(Node* root) {
-
+void printList(Node* head) {
+    Node* temp = head;
+    while (temp != NULL) {
+        cout << temp->data << " -> ";
+        temp = temp->next;
+    }
+    cout << "NULL" << endl;
 }
 
 int main() {
-    Node* root = NULL;
+    Node* head = NULL;
 
-    root = insertAtStart(root, 10);
-    root = insertAtStart(root, 40);
-    root = insertAtStart(root, 70);
-    printList(root);
+    head = insertAtStart(head, 10);
+    head = insertAtStart(head, 40);
+    head = insertAtStart(head, 70);
+    printList(head);
 
-    root = insertAtEnd(root, 20);
-    root = insertAtEnd(root, 50);
-    printList(root);
+    head = insertAtEnd(head, 20);
+    head = insertAtEnd(head, 50);
+    printList(head);
 
-    removeNode(root, 70);
-    printList(root);
+    head = removeNode(head, 40);
+    printList(head);
 
+    return 0;
 }
