@@ -8,8 +8,40 @@
 
 using namespace std;
 
+typedef struct Node {
+    int data;
+    struct Node* next;
+} Node;
 
+Node* createNode(int data) {
+
+}
+
+Node* insertAtEnd(Node* head, int data) {
+
+}
+
+Node* reverseList(Node*head) {
+
+}
+
+void printList(Node* head) {
+
+}
 
 int main() {
+    Node* head = NULL;
 
+    head = insertAtEnd(head, 10);
+    head = insertAtEnd(head, 20);
+    head = insertAtEnd(head, 30);
+    head = insertAtEnd(head, 40);
+    head = insertAtEnd(head, 50);
+
+    cout << "Lista original: ";
+    printList(head);
+
+    head = reverseList(head);
+    cout << "Lista invertida: ";
+    printList(head);
 }
