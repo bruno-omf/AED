@@ -28,11 +28,42 @@ int buscaBinaria(int vetor[], int tamanho, int valor) { // implementar
 
 int contaComparacoes(int vetor[], int tamanho, int valor) {
     int contador = 0;
+    int inicio = 0;
+    int fim = tamanho - 1;
+    int meio;
+
+    while (inicio <= fim) {
+        contador++;
+        meio = (inicio + fim) / 2;
+
+        if (vetor[meio] == valor) {
+            return contador;
+        } else if (vetor[meio] < valor) {
+            inicio = meio + 1;
+        } else {
+            fim = meio - 1;
+        }
+    }
     return contador;
 }
 
 int retornaPosicaoInsercao(int vetor[], int tamanho, int valor) { // implementar
+    int inicio = 0;
+    int fim = tamanho - 1;
+    int meio;
+    
+    while (inicio <= fim) {
+        meio = (inicio + fim) / 2;
 
+        if (vetor[meio] == valor) {
+            return meio;
+        } else if (vetor[meio] < valor) {
+            inicio = meio + 1;
+        } else {
+            fim = meio - 1;
+        }
+    }
+    return inicio;
 }
 
 void printResultado(int i, int valor) {
@@ -52,11 +83,11 @@ int main () {
 
     primeiroCaso = buscaBinaria(vetor1, tamanho, valor1);
     segundoCaso = contaComparacoes(vetor2, tamanho, valor2);
-    terceiroCaso = buscaBinaria(vetor3, tamanho, valor3);
+    terceiroCaso = retornaPosicaoInsercao(vetor3, tamanho, valor3);
 
     printResultado(primeiroCaso, valor1); // 1. primeiro caso
     cout << "A quantidade de comparacoes feitas pra encontrar o valor " << valor2 << " foi: " << segundoCaso << " ." << endl; // 2. segundo caso
-    cout << "A posicao de insercao do valor " << valor3 << " é dada no índice [" << terceiroCaso << "]." << endl;
+    cout << "A posicao de insercao do valor " << valor3 << " é dada pelo índice [" << terceiroCaso << "] do array." << endl; // 3. terceiro caso
 
     return 0;
 }
