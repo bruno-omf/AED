@@ -8,14 +8,26 @@
 using namespace std;
 
 int buscaBinaria(int vetor[], int tamanho, int valor) { // implementar
+    int inicio = 0;
+    int fim = tamanho - 1;
+    int meio;
+    
+    while (inicio <= fim) {
+        meio = (inicio + fim) / 2;
 
+        if (vetor[meio] == valor) {
+            return meio;
+        } else if (vetor[meio] < valor) {
+            inicio = meio + 1;
+        } else {
+            fim = meio - 1;
+        }
+    }
+    return -1;
 }
 
 int contaComparacoes(int vetor[], int tamanho, int valor) {
     int contador = 0;
-    for () { // implementar
-
-    }
     return contador;
 }
 
@@ -45,8 +57,6 @@ int main () {
     printResultado(primeiroCaso, valor1); // 1. primeiro caso
     cout << "A quantidade de comparacoes feitas pra encontrar o valor " << valor2 << " foi: " << segundoCaso << " ." << endl; // 2. segundo caso
     cout << "A posicao de insercao do valor " << valor3 << " é dada no índice [" << terceiroCaso << "]." << endl;
-
-
 
     return 0;
 }
