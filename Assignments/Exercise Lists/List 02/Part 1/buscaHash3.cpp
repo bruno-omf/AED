@@ -6,21 +6,39 @@
 #define VAZIO -1
 #define REMOVIDO -2
 
+using namespace std;
+
 int tabelaHash[TAM];
 
 void inicializaTabela() {
-
+    for (int i = 0; i < TAM; i++) {
+        tabelaHash[i] = VAZIO;
+    }
 }
 
-int funcaoHash() {
-
+int funcaoHash(int chave) {
+    return chave % TAM;
 }
 
 int inserir() {
 
 }
 
-int buscar() {
+int buscar(int chave) { // busca com sondagem linear
+    int indice = funcaoHash(chave); // indice 7 (passando 37 como chave)
+
+    for (int i = 0; i < TAM; i++) { // vai procurando do indice 7 em diante se o valor foi inserido.
+        int tentativa = (indice + i) % TAM;
+
+        if (tabelaHash[tentativa] == VAZIO) {
+            return -1; // nao encontrado (nunca foi inserido)
+        }
+
+        if (tabelaHash[tentativa] == chave) {
+            return tentativa; // foi encontrado, retorna onde a chave se encontra
+        }
+        return -1; // nao foi encontrado mesmo apos percorrer toda a tabela.
+    }
 
 }
 
@@ -43,18 +61,18 @@ int main() {
     if (posicao != -1) {
         cout << "Elemento " << busca << " encontrado na posicao: " << posicao << endl;
     } else {
-        cout << "Elemento " << busca << " nao encontrado." << endl;
+        cout << "Elemento " << busca << " nao encontrado na tabela." << endl;
     }
 
     // depois inserir os numeros 17, 27, 37, 47, 57
-    inserir(17);
-    inserir(27);
-    inserir(37);
-    inserir(47);
-    inserir(57);
+    // inserir(17);
+    // inserir(27);
+    // inserir(37);
+    // inserir(47);
+    // inserir(57);
 
-    // e por fim imprimir a tabela
-    imprimeTabela();
+    // // e por fim imprimir a tabela
+    // imprimeTabela();
 
 
     return 0;
