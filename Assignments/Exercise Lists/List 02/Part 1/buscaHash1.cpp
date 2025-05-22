@@ -1,6 +1,4 @@
 // 7. Hash sem colisão com módulo 10: {15, 25, 35, 45, 55}
-// 8. Hash com colisão por lista encadeada, buscar 22: Inserir 12, 22, 32, 42
-// 9. Hash com sondagem linear, buscar 37: Inserir 17, 27, 37, 47, 57
 
 #include <stdio.h>
 #include <iostream>
