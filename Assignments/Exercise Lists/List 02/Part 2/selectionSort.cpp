@@ -9,8 +9,28 @@
 
 using namespace std;
 
-void selectionSortPrintTrocas(int vetor[], int tamanho) {
+void selectionSortPrintTrocas(int vetor[], int tamanho) {    
+    for (int i = 0; i < tamanho; i++) {
+        int menor = i;
 
+        for (int j = i + 1; j < tamanho; j++) {
+            if (vetor[j] < vetor[menor]) {
+                menor = j; 
+            }
+        }
+
+        if (menor != i) { // so troca se o menor valor nao for o proprio "i". isso evita trocas desnecessarias.
+            // achei o índice do menor valor dentro do vetor
+            int temp = vetor[menor]; // guardo o menor valor dentro de temp
+            vetor[menor] = vetor[i]; // coloco o menor valor na posição i
+            vetor[i] = temp; // coloco o valor que estava na posição i na posição que antes era do menor valor, ou seja, faço essa troca.
+            
+            for (int k = 0; k < tamanho; k++) {
+                cout << vetor[k] << " ";
+            }
+            cout << endl;
+        }
+    }
 }
 
 int selectionSortContaTrocas() {
@@ -29,13 +49,13 @@ int main () {
     cout << "Selection sort com impressao apos cada troca no vetor 1: " << endl;
     selectionSortPrintTrocas(vet1, TAM);
 
-    cout << "Selection sort com contador de trocas feitas: " << endl;
-    int trocas = selectionSortContaTrocas(vet2, TAM);
-    cout << "A quantidade de trocas realizadas no vetor 2 foram: " << trocas << endl;
+    // cout << "Selection sort com contador de trocas feitas: " << endl;
+    // int trocas = selectionSortContaTrocas(vet2, TAM);
+    // cout << "A quantidade de trocas realizadas no vetor 2 foram: " << trocas << endl;
     
-    cout << "Selection sort com o array 3 em ordem decrescente: " << endl;
-    selectionSortContaTrocas(vet3, TAM);
-    printaDecrescente(vet3, TAM);
+    // cout << "Selection sort com o array 3 em ordem decrescente: " << endl;
+    // selectionSortContaTrocas(vet3, TAM);
+    // printaDecrescente(vet3, TAM);
 
     return 0;
 }
