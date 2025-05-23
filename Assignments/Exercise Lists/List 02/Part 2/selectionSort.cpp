@@ -25,20 +25,44 @@ void selectionSortPrintTrocas(int vetor[], int tamanho) {
             vetor[menor] = vetor[i]; // coloco o menor valor na posição i
             vetor[i] = temp; // coloco o valor que estava na posição i na posição que antes era do menor valor, ou seja, faço essa troca.
             
+            cout << "{";
             for (int k = 0; k < tamanho; k++) {
                 cout << vetor[k] << " ";
             }
+            cout << "}";
             cout << endl;
         }
     }
+    cout << endl;
 }
 
-int selectionSortContaTrocas() {
+int selectionSortContaTrocas(int vetor[], int tamanho) {
+    int trocas = 0;
 
+    for (int i = 0; i < tamanho; i++) {
+        int menor = i;
+        for (int j = i + 1; j < tamanho; j++) {
+            if (vetor[j] < vetor[menor]) {
+                menor = j;
+            }
+        }
+
+        if (menor != i) {
+            int temp = vetor[menor];
+            vetor[menor]  = vetor[i];
+            vetor[i] = temp;
+            trocas++;
+        }
+    }
+    return trocas;
 }
 
-void printaDecrescente() {
-
+void printaDecrescente(int vetor[], int tamanho) {
+    cout << "{";
+    for(int i = tamanho - 1; i >= 0; i--) {
+        cout << vetor[i] << " ";
+    }
+    cout << "}" << endl;
 }
 
 int main () {
@@ -49,13 +73,13 @@ int main () {
     cout << "Selection sort com impressao apos cada troca no vetor 1: " << endl;
     selectionSortPrintTrocas(vet1, TAM);
 
-    // cout << "Selection sort com contador de trocas feitas: " << endl;
-    // int trocas = selectionSortContaTrocas(vet2, TAM);
-    // cout << "A quantidade de trocas realizadas no vetor 2 foram: " << trocas << endl;
+    int trocas = selectionSortContaTrocas(vet2, TAM);
+    cout << "A quantidade de trocas realizadas no vetor 2 foram: " << trocas << " trocas" << endl;
     
-    // cout << "Selection sort com o array 3 em ordem decrescente: " << endl;
-    // selectionSortContaTrocas(vet3, TAM);
-    // printaDecrescente(vet3, TAM);
+    cout << endl;
+    cout << "Selection sort com o array 3 em ordem decrescente: " << endl;
+    selectionSortContaTrocas(vet3, TAM);
+    printaDecrescente(vet3, TAM);
 
     return 0;
 }
