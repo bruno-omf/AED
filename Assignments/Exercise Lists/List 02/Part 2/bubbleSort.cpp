@@ -10,15 +10,29 @@
 using namespace std;
 
 void bubbleSort(int vetor[], int tamanho) {
-
+    for (int i = 0; i < tamanho; i++) {
+        for (int j = 0; j < tamanho; j++) {
+            if (vetor[j] > vetor[j + 1]) {
+                int temp = vetor[j];
+                vetor[j] = vetor[j + 1];
+                vetor[j + 1] = temp;
+            }
+        }
+    }
 }
 
 void printCrescente(int vetor[], int tamanho) {
-
+    for (int i = 0; i < tamanho; i++) {
+        cout << vetor[i] << " ";
+    }
+    cout << endl;
 }
 
 void printDecrescente(int vetor[], int tamanho) {
-
+    for (int i = tamanho - 1; i >= 0; i--) {
+        cout << vetor[i] << " ";
+    }
+    cout << endl;
 }
 
 int main () {
@@ -29,12 +43,12 @@ int main () {
     // ordenar em ordem crescente e imprimir quando ordenado.
     bubbleSort(vet1, TAM);
     cout << "Vetor 1 ordenado em ordem crescente: ";
-    printCrescente(resultado1, TAM);
+    printCrescente(vet1, TAM);
 
     // imprimir em ordem decrescente
     bubbleSort(vet2, TAM);
     cout << "Vetor 2 ordenado em ordem crescente: ";
-    printDecrescente(resultado2, TAM);
+    printDecrescente(vet2, TAM);
 
     return 0;
 }
