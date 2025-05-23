@@ -24,8 +24,13 @@ int funcaoHash(int chave) {
     return chave % TAM;
 }
 
-void inserir() {
+void inserir(int chave) {
+    int indice = funcaoHash(chave);
 
+    No* novoNo = (No*)malloc(sizeof(No));
+    novoNo->chave = chave;
+    novoNo->prox = tabelaHash[indice];
+    tabelaHash[indice] = novoNo;
 }
 
 No* buscar(int chave) {
@@ -43,7 +48,16 @@ No* buscar(int chave) {
 }
 
 void imprimeTabela() {
-
+    for (int i = 0; i < TAM; i++) {
+        printf("[%d]: ", i);
+        
+        No* atual = tabelaHash[i];
+        while(atual) {
+            printf("%d->", atual->chave);
+            atual = atual->prox;
+        }
+        printf("NULL\n");
+    }
 }
 
 int main() {
@@ -58,12 +72,12 @@ int main() {
         cout << "Elemento nao encontrado na tabela hash." << endl;
     }
 
-    // inserir(12);
-    // inserir(22);
-    // inserir(32);
-    // inserir(42);
+    inserir(12);
+    inserir(22);
+    inserir(32);
+    inserir(42);
 
-    // imprimeTabela();
+    imprimeTabela();
 
     return 0;
 }
